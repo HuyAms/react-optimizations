@@ -9,6 +9,11 @@ import {App as ElementUseMemo} from "./components/ex1.3-element-use-memo";
 import {App as ElementMemo} from "./components/ex1.4-element-memo";
 import {App as MemorizeContext} from "./components/ex2-memorize-context";
 import {App as ContextProvider} from "./components/ex2.1-context-provider";
+import { lazy, Suspense } from "react";
+
+// use react lazy for code splitting
+const loadCodeSplitting = () => import("./components/ex3-code-splitting");
+const CodeSplittingComponent = lazy(loadCodeSplitting);
 
 function Menu() {
   return (
@@ -22,6 +27,7 @@ function Menu() {
       <li><a href="/element-memo">Element Optimization: React memo</a></li>
       <li><a href="/memorize-context">Context: Memorize Context</a></li>
       <li><a href="/context-provider">Context Provider</a></li>
+      <li><a onFocus={loadCodeSplitting} onPointerEnter={loadCodeSplitting} href="/code-splitting">Code Splitting</a></li>
     </ul>
     </>
   )
@@ -61,6 +67,10 @@ function App() {
     {
       path: "/context-provider",
       element: <ContextProvider/>,
+    },
+    {
+      path: "/code-splitting",
+      element: <Suspense fallback={<div>Loading...</div>}><CodeSplittingComponent/></Suspense>,
     }
   ]);
 

@@ -29,3 +29,18 @@ To optimize the Context:
 - memorize the Context value with `React.useMemo`
 - use Provider component
 - split context: one context for value, one for setter
+
+## Code Splitting
+
+- lazy load a component with `React.lazy` and `Suspense`
+- eager loading - eg: on button hover/focus (`onFocus` and `onPointerEnter`)
+- `useTransition` + `useSpinDelay` to avoid showing the Loading if it's fast!
+
+## Expensive Calculation
+
+- useMemo to avoid calculate expensive calculation on each re-render
+- Move long tasks to a web-worker using the [comlink library](https://npm.im/comlink)
+
+## Windowing
+
+Consider render a long list of items with `@tanstack/react-virtual`. Only render what is visible on the screen!
