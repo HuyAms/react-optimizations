@@ -15,7 +15,17 @@ The UI doesn't tell much. Read the code under the `components` folder.
 
 To prevent an element from re-rendering, consider these options:
 
-- Move the element outside of the component.
-- Lift it to a parent component with fewer renders.
-- Use `React.useMemo` or `React.memo`
-- Pass data via context. The idea is that we can move component somewhere else.
+- move the element outside of the component.
+- lift it to a parent component with fewer renders.
+- use `React.useMemo` or `React.memo`
+- pass data via context. The idea is that we can move component somewhere else.
+
+## Optimize Context
+
+The way that context works is that whenever the provided value changes from one render to another, it triggers a re-render of all the consuming components (which will re-render whether or not they're memoized).
+
+To optimize the Context:
+
+- memorize the Context value with `React.useMemo`
+- use Provider component
+- split context: one context for value, one for setter

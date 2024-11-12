@@ -7,6 +7,8 @@ import {App as ElementProps} from "./components/ex1.1-element-props";
 import {App as ElementContext} from "./components/ex1.2-element-context";
 import {App as ElementUseMemo} from "./components/ex1.3-element-use-memo";
 import {App as ElementMemo} from "./components/ex1.4-element-memo";
+import {App as MemorizeContext} from "./components/ex2-memorize-context";
+import {App as ContextProvider} from "./components/ex2.1-context-provider";
 
 function Menu() {
   return (
@@ -18,6 +20,8 @@ function Menu() {
       <li><a href="/element-context">Element Optimization: Context</a></li>
       <li><a href="/element-use-memo">Element Optimization: useMemo</a></li>
       <li><a href="/element-memo">Element Optimization: React memo</a></li>
+      <li><a href="/memorize-context">Context: Memorize Context</a></li>
+      <li><a href="/context-provider">Context Provider</a></li>
     </ul>
     </>
   )
@@ -49,6 +53,14 @@ function App() {
     {
       path: "/element-memo",
       element: <ElementMemo/>,
+    },
+    {
+      path: "/memorize-context",
+      element: <MemorizeContext/>,
+    },
+    {
+      path: "/context-provider",
+      element: <ContextProvider/>,
     }
   ]);
 
